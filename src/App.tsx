@@ -1,41 +1,51 @@
 import React from 'react';
 import './App.css';
 
-function App() {
+export function App() {
+    console.log("app rendering")
     return (
         <div>
             <Rating/>
-            <Accordion />
+            <Accordion/>
         </div>
     );
 }
 
 function Rating() {
+    console.log("rating rendering");
     return (
         <div>
-            <Star />
-            <Star />
-            <Star />
-            <Star />
+            <Star/>
         </div>
     )
 }
 
 function Accordion() {
+    console.log("accordion rendering")
     return (
         <div>
-            <div>Menu</div>
-            <ul>
-                <li>City</li>
-                <li>Name</li>
-                <li>LastName</li>
-            </ul>
+            <AccordionTitle/>
+            <AccordionBody/>
         </div>
     )
 }
 
 function Star() {
+    console.log("star rendering");
     return <span>star </span>
 }
 
-export default App;
+function AccordionTitle() {
+    return <h2>Menu</h2>
+}
+
+function AccordionBody() {
+    return (
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    )
+}
+
