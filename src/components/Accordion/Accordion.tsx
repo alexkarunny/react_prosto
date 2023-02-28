@@ -2,6 +2,7 @@ import React from "react";
 
 type accordionProps = {
     title: string
+    collapsed: boolean
 }
 
 export function Accordion(props: accordionProps) {
@@ -9,7 +10,7 @@ export function Accordion(props: accordionProps) {
     return (
         <div>
             <AccordionTitle title={props.title}/>
-            <AccordionBody/>
+            {!props.collapsed && <AccordionBody/>}
         </div>
     )
 }

@@ -7,8 +7,14 @@ export function App() {
     console.log("app rendering")
     return (
         <div>
+            <Rating value={0}/>
+            <Rating value={1}/>
+            <Rating value={2}/>
+            <Rating value={3}/>
+            <Rating value={4}/>
             <Rating value={5}/>
-            <Accordion title={'numbers'}/>
+            <Accordion title={'numbers'} collapsed={true}/>
+            <Accordion title={'letters'} collapsed={false}/>
         </div>
     );
 }
