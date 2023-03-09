@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
+import {OnOff} from './components/OnOff/OnOff';
 
 export function App() {
     console.log("app rendering")
@@ -15,6 +16,7 @@ export function App() {
             <Rating value={5}/>
             <Accordion title={'numbers'} collapsed={true}/>
             <Accordion title={'letters'} collapsed={false}/>
+            <OnOff isActive={true}/>
         </div>
     );
 }
