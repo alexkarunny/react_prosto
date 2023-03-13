@@ -3,6 +3,7 @@
     width: 50px;
     height: 30px;
     border: 1px solid black;
+    margin-right: 5px;
 }
 
 .on.on_active {
@@ -14,6 +15,7 @@
     width: 50px;
     height: 30px;
     border: 1px solid black;
+    margin-right: 5px;
 }
 
 .off.off_active {
