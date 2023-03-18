@@ -9,22 +9,21 @@ import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRa
 
 export function App() {
 
-    let [isActive, setIsActive] = useState<boolean>(false)
+    const [isActive, setIsActive] = useState<boolean>(false)
+    const [value, setValue] = useState<0 | 1 | 2 | 3 | 4 | 5>(3)
+    const [collapsed, setCollapsed] = useState<boolean>(false)
+
 
     return (
         <div>
-            <Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>
-            <Accordion title={'numbers'} collapsed={true}/>
-            <Accordion title={'letters'} collapsed={false}/>
+            <h1>Controlled Elements</h1>
+            <Rating value={value} setValue={setValue}/>
+            <Accordion title={'letters menu'} collapsed={collapsed} setCollapsed={setCollapsed}/>
             <OnOff isActive={isActive} isActiveHandler={setIsActive}/>
-            <UncontrolledOnOffOnOff/>
-            <UncontrolledAccordion title={'Uncontrolled'}/>
+            <h1>Uncontrolled elements</h1>
             <UncontrolledRating/>
+            <UncontrolledAccordion title={'title menu'}/>
+            <UncontrolledOnOffOnOff/>
         </div>
     );
 }

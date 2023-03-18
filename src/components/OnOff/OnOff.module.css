@@ -33,4 +33,5 @@
 
 .switch.switch_active {
     background-color: green;
+    text-align: right;
 }
