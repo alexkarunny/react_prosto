@@ -1,6 +1,6 @@
 import React from "react";
 
-type ratingProps = {
+export type ratingProps = {
     value: 0 | 1 | 2 | 3 | 4 | 5
     setValue: (value: 0 | 1 | 2 | 3 | 4 | 5) => void
 }
