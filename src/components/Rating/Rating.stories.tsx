@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 import {Rating} from './Rating';
 
@@ -23,8 +23,27 @@ const Template: ComponentStory<typeof Rating> = (args) => {
 export const Three = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Three.args = {
-   value: 5,
+   value: 3,
   setValue: () => {}
 };
+
+
+
+export const UncontrolledSelect = () => {
+    const [value, setValue] = useState<string | undefined>(undefined)
+    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+        setValue(e.currentTarget.value)
+    }
+    return (
+        <div>
+            <select name="" id="" value={value} onChange={onChangeHandler}>
+                <option>none</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+    )
+}
 
 
