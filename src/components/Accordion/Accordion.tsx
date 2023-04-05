@@ -4,6 +4,7 @@ type accordionProps = {
     title: string
     collapsed: boolean
     setCollapsed: (collapsed: boolean) => void
+    cities: string[]
 }
 
 export function Accordion(props: accordionProps) {
@@ -11,7 +12,7 @@ export function Accordion(props: accordionProps) {
     return (
         <div>
             <AccordionTitle title={props.title} setCollapsed={() => props.setCollapsed(!props.collapsed)}/>
-            {!props.collapsed && <AccordionBody/>}
+            {!props.collapsed && <AccordionBody cities={props.cities}/>}
         </div>
     )
 }
@@ -25,12 +26,14 @@ function AccordionTitle(props: accordionTitleProps) {
     return <h2 onClick={props.setCollapsed}>{props.title}</h2>
 }
 
-function AccordionBody() {
+type AccordionBodyPropsType = {
+    cities: string[]
+}
+
+function AccordionBody(props: AccordionBodyPropsType) {
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {props.cities.map(c => <li key={c.length}>{c}</li>)}
         </ul>
     )
 }
