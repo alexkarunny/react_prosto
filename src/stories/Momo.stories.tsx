@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 
 export default {
     title: 'React memo demo',
@@ -24,7 +24,7 @@ const Counter = React.memo(SecretCounter)
 
 export const Memo = () => {
     let [value, setValue] = useState<number>(1)
-    let [users, setUsers] = useState<string[]>(['Alex', 'Andrew'])
+    let [users, setUsers] = useState<string[]>(['Alex', 'Andrew', 'Baza', 'Eugene'])
 
     const addCounter = () => {
         setValue(++value)
@@ -32,10 +32,15 @@ export const Memo = () => {
     const addUser = () => {
        setUsers([...users, `Sveta ${new Date().getTime()}`])
     }
+
+    const newUsers = useMemo(() => {
+        return users.map(u => u)
+    }, [users])
+
     return <>
         <button onClick={addCounter}>Add</button>
         <button onClick={addUser}>AddUser</button>
         <Counter num={value}/>
-        <Users users={users}/>
+        <Users users={newUsers}/>
     </>
 }
