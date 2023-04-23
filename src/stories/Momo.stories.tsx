@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 
 export default {
     title: 'React memo demo',
@@ -10,11 +10,12 @@ const SecretCounter = (props: { num: number }) => {
     return <div>Number - {props.num}</div>
 }
 
-const SecretUsers = (props: { users: string[] }) => {
+const SecretUsers = (props: { users: string[], addUser: () => void }) => {
     console.log('Secret Users call')
     console.log(props.users)
     return <div>
         {props.users.map((u, i) => <div key={i}>{u}</div>)}
+        <button onClick={props.addUser}>AddUser</button>
     </div>
 }
 
@@ -33,14 +34,22 @@ export const Memo = () => {
        setUsers([...users, `Sveta ${new Date().getTime()}`])
     }
 
+    const memAddUser = useCallback(() => {
+        setUsers([...users, `Sveta ${new Date().getTime()}`])
+    }, [users])
+
     const newUsers = useMemo(() => {
         return users.map(u => u)
     }, [users])
 
+/*    const newUsers = () => {
+        return users.map(u => u)
+    }*/
+
     return <>
         <button onClick={addCounter}>Add</button>
-        <button onClick={addUser}>AddUser</button>
+
         <Counter num={value}/>
-        <Users users={newUsers}/>
+        <Users users={newUsers} addUser={memAddUser}/>
     </>
 }
